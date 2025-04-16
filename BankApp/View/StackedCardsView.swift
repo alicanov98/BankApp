@@ -25,13 +25,13 @@ struct StackedCardsView: View {
                                 topCardOffset = value.translation
                             }
                             .onEnded { value in
-                                if abs(value.translation.width) > 100 {
-                                    withAnimation {
+                                if value.translation.width > 100 {
+                                    withAnimation(.easeInOut(duration: 0.6)) {
                                         viewModel.cycleCard()
                                         topCardOffset = .zero
                                     }
                                 } else {
-                                    withAnimation {
+                                    withAnimation(.easeOut(duration: 0.6)) {
                                         topCardOffset = .zero
                                     }
                                 }
