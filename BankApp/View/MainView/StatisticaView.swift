@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct PayView: View {
+struct StatisticaView: View {
     var body: some View {
-        Text("Pay View")
+        Text("Statistica View")
+            .font(.largeTitle)
+            .padding()
     }
 }
 
 #Preview {
-    PayView()
+    StatisticaView()
 }

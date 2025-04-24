@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct TransferView: View {
+struct SettingsView: View {
     var body: some View {
-        Text("Transfer Page")
+        Text("Settings Page")
                    .font(.largeTitle)
                    .padding()
     }
 }
 
 #Preview {
-    TransferView()
+    SettingsView()
 }

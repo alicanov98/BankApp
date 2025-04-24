@@ -9,12 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var path: [Route]
+
     var body: some View {
-        NavigationView {
-            BankApp(path: $path)
-        }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
+        MainTabView(path: $path)
+            
     }
 }
 
@@ -29,7 +27,7 @@ struct BankApp: View {
             VStack {
                 BankHeader()
                 StackedCardsView(viewModel: viewModel)
-                    .frame(height: 250)
+                    .frame(height: 240)
                     .padding()
 
                 ActionButtonsView(path: $path)
@@ -39,6 +37,7 @@ struct BankApp: View {
                 Spacer()
             }
         }
+        .background(Color.white)
     }
 }
 
@@ -66,7 +65,7 @@ struct CardsView: View {
                 Spacer()
                 Text("4562 1122 \(card.cardNumber)")
                     .foregroundColor(.white.opacity(0.8))
-                    .font(.system(size: 37,weight: .regular))
+                    .font(.system(size: 33,weight: .regular))
                 Spacer()
                 HStack(spacing: 20) {
                     VStack(spacing:4){
@@ -92,10 +91,10 @@ struct CardsView: View {
                         Image(card.titleCard)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 70,height: 40)
+                            .frame(width: 50,height: 30)
                             
                         Text(card.title)
-                            .font(.system(size: 16))
+                            .font(.system(size: 12))
                             .bold()
                             .foregroundColor(.white)
                     }
@@ -112,13 +111,11 @@ struct CardsView: View {
     }
 }
 
-#Preview{
-    CardsView(card: Card(
-           title: "Master Card",
-           cardName: "Maincard",
-           titleCard: "masterCard",
-           cardNumber: "4321 1234",
-           expressionDate: "12/26"
-       ))
+struct ContentView_Previews: PreviewProvider {
+    @State static var path: [Route] = []  
+    
+    static var previews: some View {
+        ContentView(path: $path)
+    }
 }
 

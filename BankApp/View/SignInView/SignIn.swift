@@ -35,7 +35,7 @@ struct SignIn: View {
                     backgroundColor: .blue,
                     textColor: .white
                 ) {
-                    path.append(.home)
+                    path.append(.mainPage)
                 }
                 .padding(.top, 20)
                 HStack{
@@ -58,3 +58,14 @@ struct SignIn: View {
     }
 }
 
+#Preview {
+    struct PreviewWrapper: View {
+        @State var path: [Route] = []
+
+        var body: some View {
+            SignIn(path: $path)
+        }
+    }
+
+    return PreviewWrapper()
+}

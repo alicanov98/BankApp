@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CardView: View {
     var body: some View {
-        Text("Card View")
+        Text("Cards View")
+            .font(.largeTitle)
+            .padding()
     }
 }
 

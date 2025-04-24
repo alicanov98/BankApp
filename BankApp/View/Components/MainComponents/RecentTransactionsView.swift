@@ -12,9 +12,21 @@ struct RecentTransactionsView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Recent Transactions")
-                .font(.headline)
-                .padding(.horizontal)
+            HStack{
+                Text("Transactions")
+                    .font(.system(size: 20))
+                    .padding(.horizontal)
+                Spacer()
+                Button(action:{}){
+                    Text("Sell All")
+                        .font(.system(size: 14))
+                        .padding(.horizontal)
+                        .foregroundColor(Color("Blue"))
+                }
+               
+                
+            }
+            
 
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 20) {
@@ -33,3 +45,9 @@ struct RecentTransactionsView: View {
 }
 
 
+struct RecentTransactionsView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = BankViewModel()
+        return RecentTransactionsView(viewModel: viewModel)
+    }
+}

@@ -10,15 +10,18 @@ import SwiftUI
 
 class BankViewModel: ObservableObject {
     @Published var cards: [Card] = [
-        Card(title: "Bank Card", cardName: "Master Card",titleCard:"masterCard", cardNumber: "4595 1234", expressionDate: "01/29"),
-        Card(title: "Cashback Card", cardName: "VISA",titleCard:"visa", cardNumber: "8765 5678",expressionDate: "02/30"),
-        Card(title: "Credit Card", cardName: "Master Card",titleCard:"masterCard", cardNumber: "1019 9101", expressionDate: "03/01"),
-        Card(title: "EDV Card", cardName: "VISA",titleCard:"visa", cardNumber: "3121 1213", expressionDate: "03/02")
+        Card(title: "Master Card", cardName: "Bank Card",titleCard:"masterCard", cardNumber: "4595 1234", expressionDate: "01/29"),
+        Card(title: "VISA", cardName: "Cashback Card",titleCard:"visa", cardNumber: "8765 5678",expressionDate: "02/30"),
+        Card(title: "Master Card", cardName: "Credit Card",titleCard:"masterCard", cardNumber: "1019 9101", expressionDate: "03/01"),
+        Card(title: "VISA", cardName: "EDV Card",titleCard:"visa", cardNumber: "3121 1213", expressionDate: "03/02")
     ]
     
-    @Published var transactions: [Transaction] = (0..<15).map { _ in
-        Transaction(iconName: "cart.fill", title: "Shopping", date: "12 Oct 2025", amount: "-$150.00")
-    }
+    @Published var transactions: [Transaction] = [
+        Transaction(iconName: "shop", title: "Bazar Store", category: "Shopping", amount: "-$150",receive:false,sent:false),
+        Transaction(iconName: "transaction", title: "Money Transfer", category: "Transaction", amount: "$100",receive:true,sent:false),
+        Transaction(iconName: "apple", title: "Apple Store", category: "Entertainment", amount: "-$100",receive:false,sent:false),
+        Transaction(iconName: "spotify", title: "Money Transfer", category: "Transaction", amount: "-$100",receive:false,sent:true)
+    ]
     
     func cycleCard() {
         if let last = cards.popLast() {

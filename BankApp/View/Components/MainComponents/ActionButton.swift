@@ -16,19 +16,19 @@ struct ActionButton: View {
         VStack {
             Button (action: action) {
                 Image(systemName: iconName)
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.7)]),
-                                               startPoint: .topLeading,
-                                               endPoint: .bottomTrailing))
+                    .font(.system(size: 25))
+                    .foregroundColor(Color("DarkBlue"))
+                    .padding(20)
+                    .background(Color("LightGray"))
                     .clipShape(Circle())
             }
             Text(labels)
                 .font(.caption)
-                .foregroundColor(.gray)
+                .foregroundColor(Color("DarkBlue"))
         }
     }
 }
 
-
+#Preview {
+    ActionButton(iconName: "arrow.up", labels: "Sent", action: {})
+}

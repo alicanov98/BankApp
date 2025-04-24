@@ -11,17 +11,17 @@ struct ActionButtonsView: View {
     @Binding var path: [Route]
     var body: some View {
         HStack(spacing: 25) {
-            ActionButton(iconName: "arrow.left.arrow.right", labels: "Transfer"){
-                path.append(.transfer)
+            ActionButton(iconName: "arrow.up", labels: "Sent"){
+               
             }
-            ActionButton(iconName: "dollarsign.circle", labels: "Pay"){
-                path.append(.pay)
+            ActionButton(iconName: "arrow.down", labels: "Receive"){
+               
             }
-            ActionButton(iconName: "creditcard", labels: "Card"){
-                path.append(.card)
+            ActionButton(iconName: "dollarsign.circle", labels: "Loan"){
+                
             }
-            ActionButton(iconName: "chart.bar", labels: "Stats"){
-                path.append(.stats)
+            ActionButton(iconName: "icloud.and.arrow.up", labels: "Topup"){
+                
             }
         }
         .padding()

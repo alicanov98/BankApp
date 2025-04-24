@@ -11,9 +11,5 @@ import Foundation
 enum Route: Hashable {
     case signIn
     case signUp
-    case home
-    case transfer
-    case pay
-    case card
-    case stats
+    case mainPage
 }

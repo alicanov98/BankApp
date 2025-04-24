@@ -15,7 +15,7 @@ struct BankAppNavigation: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $path) {
-                ZStack { // Bu ZStack sadəcə müxtəlif View-ləri eyni blokda qaytarmaq üçündür
+                ZStack {
                     if isOnboardingCompleted {
                         SignIn(path: $path)
                     } else {
@@ -33,16 +33,11 @@ struct BankAppNavigation: App {
                         SignIn(path: $path)
                     case .signUp:
                         SignUp(path: $path)
-                    case .home:
-                        ContentView(path: $path)
-                    case .transfer:
-                        TransferView()
-                    case .pay:
-                        PayView()
-                    case .card:
-                        CardView()
-                    case .stats:
-                        StatsView()
+                    case .mainPage:
+                        MainTabView(path: $path)
+                            .navigationBarBackButtonHidden(true)
+                            .navigationBarHidden(true)
+                        
                     }
                 }
             }

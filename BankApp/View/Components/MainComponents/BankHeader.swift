@@ -32,8 +32,7 @@ struct BankHeader: View {
                     .clipShape(Circle())
             }
         }
-        .padding()
-        .background(Color.white)
+        .padding(.horizontal)
     
     }
 }

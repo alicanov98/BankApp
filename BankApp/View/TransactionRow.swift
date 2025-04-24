@@ -12,29 +12,34 @@ struct TransactionRow: View {
 
     var body: some View {
         HStack {
-            Image(systemName: transaction.iconName)
-                .font(.title)
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.red.opacity(0.5))
-                .clipShape(Circle())
+            HStack(spacing: 12){
+                Image(transaction.iconName)
+                    .font(.system(size: 25))
+                    .foregroundColor(Color("DarkBlue"))
+                    .padding(10)
+                    .background(Color("LightGray"))
+                    .clipShape(Circle())
 
-            VStack(alignment: .leading) {
-                Text(transaction.title)
-                    .font(.headline)
-                Text(transaction.date)
-                    .font(.caption)
-                    .foregroundColor(.gray)
+                VStack(alignment: .leading,spacing: 3) {
+                    Text(transaction.title)
+                        .font(.system(size: 18,weight: .medium))
+                    Text(transaction.category)
+                        .font(.system(size: 14,weight: .regular))
+                        .foregroundColor(.gray)
+                }
             }
+           
             Spacer()
             Text(transaction.amount)
-                .font(.caption)
-                .foregroundColor(.red)
+                .font(.system(size: 18,weight: .medium))
+                .foregroundColor(transaction.receive == true ? .blue : .red)
         }
         .background(Color.white)
         .cornerRadius(10)
     }
 }
 
-
+#Preview {
+    TransactionRow(transaction: Transaction(iconName: "star.fill", title: "Money Transfer", category: "Transaction", amount: "$100",receive:true,sent:false))
+}
 

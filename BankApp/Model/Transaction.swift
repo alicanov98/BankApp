@@ -12,6 +12,8 @@ struct Transaction: Identifiable {
     var id = UUID()
     var iconName: String
     var title: String
-    var date: String
+    var category: String
     var amount: String
+    var receive: Bool
+    var sent: Bool
 }
