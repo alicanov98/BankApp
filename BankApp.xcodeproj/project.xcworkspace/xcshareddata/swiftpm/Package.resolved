@@ -1,0 +1,33 @@
+{
+  "originHash" : "13a13553b11dd6a230404d4989bed4b56df0bd7e797c1a4b9383f49e8116f636",
+  "pins" : [
+    {
+      "identity" : "swift2d",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/richardpiazza/Swift2D.git",
+      "state" : {
+        "revision" : "f9e993c0075013339c5c132ab01fc78750b8774f",
+        "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "swiftsvg",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/richardpiazza/SwiftSVG.git",
+      "state" : {
+        "revision" : "7238a601fc0e074543e3fa1b1912bf7afa9d32bf",
+        "version" : "0.11.0"
+      }
+    },
+    {
+      "identity" : "xmlcoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CoreOffice/XMLCoder.git",
+      "state" : {
+        "revision" : "b1e944cbd0ef33787b13f639a5418d55b3bed501",
+        "version" : "0.17.1"
+      }
+    }
+  ],
+  "version" : 3
+}

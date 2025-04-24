@@ -6,13 +6,30 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F4E76D882DB816B900F18E92 /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = F4E76D872DB816B900F18E92 /* SwiftSVG */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F461FFD02DAFDD1600E7CE1E /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F44B11852DB99217002D30BB /* Exceptions for "BankApp" folder in "BankApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				LaunchScreen.storyboard,
+			);
+			target = F461FFCF2DAFDD1600E7CE1E /* BankApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F461FFD22DAFDD1600E7CE1E /* BankApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F44B11852DB99217002D30BB /* Exceptions for "BankApp" folder in "BankApp" target */,
+			);
 			path = BankApp;
 			sourceTree = "<group>";
 		};
@@ -23,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E76D882DB816B900F18E92 /* SwiftSVG in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,9 +51,11 @@
 			isa = PBXGroup;
 			children = (
 				F461FFD22DAFDD1600E7CE1E /* BankApp */,
+				F4E76D862DB816B900F18E92 /* Frameworks */,
 				F461FFD12DAFDD1600E7CE1E /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		F461FFD12DAFDD1600E7CE1E /* Products */ = {
 			isa = PBXGroup;
@@ -43,6 +63,13 @@
 				F461FFD02DAFDD1600E7CE1E /* BankApp.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F4E76D862DB816B900F18E92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -54,7 +81,7 @@
 			buildPhases = (
 				F461FFCC2DAFDD1600E7CE1E /* Sources */,
 				F461FFCD2DAFDD1600E7CE1E /* Frameworks */,
-				F461FFCE2DAFDD1600E7CE1E /* Resources */,
+				F44B11842DB99217002D30BB /* Resources */,
 			);
 			buildRules = (
 			);
@@ -65,6 +92,7 @@
 			);
 			name = BankApp;
 			packageProductDependencies = (
+				F4E76D872DB816B900F18E92 /* SwiftSVG */,
 			);
 			productName = BankApp;
 			productReference = F461FFD02DAFDD1600E7CE1E /* BankApp.app */;
@@ -94,6 +122,9 @@
 			);
 			mainGroup = F461FFC72DAFDD1600E7CE1E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F4E76D612DB80C2500F18E92 /* XCRemoteSwiftPackageReference "SwiftSVG" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F461FFD12DAFDD1600E7CE1E /* Products */;
 			projectDirPath = "";
@@ -105,7 +136,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F461FFCE2DAFDD1600E7CE1E /* Resources */ = {
+		F44B11842DB99217002D30BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,15 +280,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BankApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "BankApp/Assets.xcassets BankApp/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 6WV7UW9JD3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -278,15 +312,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BankApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "BankApp/Assets.xcassets BankApp/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 6WV7UW9JD3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4E76D612DB80C2500F18E92 /* XCRemoteSwiftPackageReference "SwiftSVG" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardpiazza/SwiftSVG.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4E76D872DB816B900F18E92 /* SwiftSVG */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E76D612DB80C2500F18E92 /* XCRemoteSwiftPackageReference "SwiftSVG" */;
+			productName = SwiftSVG;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F461FFC82DAFDD1600E7CE1E /* Project object */;
 }

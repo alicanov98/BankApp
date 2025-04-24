@@ -8,79 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var path: [Route]
     var body: some View {
-        BankAppView()
+        NavigationView {
+            BankApp(path: $path)
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 
-#Preview {
-    ContentView()
-}
 
-
-struct BankAppView: View {
+struct BankApp: View {
     @StateObject private var viewModel = BankViewModel()
-    
+    @Binding var path: [Route]
     var body: some View {
         ZStack {
             Color(.systemGroupedBackground)
                 .ignoresSafeArea()
             VStack {
-                // Header
-                HStack {
-                    Text("My Bank")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                    Spacer()
-                    Button {
-                        // Profile action
-                    } label: {
-                        Image(systemName: "person.circle.fill")
-                            .font(.title)
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding()
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.7)]),
-                                   startPoint: .topLeading,
-                                   endPoint: .bottomTrailing)
-                )
-
-                // Cards
+                BankHeader()
                 StackedCardsView(viewModel: viewModel)
                     .frame(height: 250)
                     .padding()
 
-                // Action Buttons
-                HStack(spacing: 25) {
-                    ActionButton(iconName: "arrow.left.arrow.right", labels: "Transfer")
-                    ActionButton(iconName: "dollarsign.circle", labels: "Pay")
-                    ActionButton(iconName: "creditcard", labels: "Card")
-                    ActionButton(iconName: "chart.bar", labels: "Stats")
-                }
-                .padding()
+                ActionButtonsView(path: $path)
 
-                // Transactions
-                VStack(alignment: .leading) {
-                    Text("Recent Transactions")
-                        .font(.headline)
-                        .padding(.horizontal)
+                RecentTransactionsView(viewModel: viewModel)
 
-                    ScrollView(.vertical, showsIndicators: false) {
-                        VStack(spacing: 20) {
-                            ForEach(viewModel.transactions) { tx in
-                                TransactionRow(transaction: tx)
-                            }
-                        }
-                        .padding()
-                    }
-                }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(20)
-                .padding(.horizontal)
                 Spacer()
             }
         }
@@ -88,67 +43,82 @@ struct BankAppView: View {
 }
 
 
-struct ActionButton: View {
-    var iconName : String
-    var labels: String
-    var body: some View {
-        VStack {
-            Button {
-                
-            } label: {
-                Image(systemName: iconName)
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.7)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .clipShape(Circle())
-                
-            }
-            Text(labels)
-                .font(.caption)
-                .foregroundColor(.gray)
-        }
-    }
-}
 
 
 
 
-struct CardView: View {
+struct CardsView: View {
     var card: Card
     
     var body: some View {
-        VStack {
-            HStack(alignment:.top){
-                Text(card.title)
-                    .font(.headline)
-                    .foregroundColor(.white)
+        ZStack{
+            Image("Card")
+                .resizable()
+                .scaledToFit()
+            VStack {
+                HStack(alignment:.top){
+                    Spacer()
+                    Text(card.cardName)
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.white)
+                }
                 Spacer()
-                Text(card.cardName)
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(.white)
+                Text("4562 1122 \(card.cardNumber)")
+                    .foregroundColor(.white.opacity(0.8))
+                    .font(.system(size: 37,weight: .regular))
+                Spacer()
+                HStack(spacing: 20) {
+                    VStack(spacing:4){
+                        Text("Expiry Date")
+                            .font(.system(size: 9))
+                            .foregroundColor(Color("Gray"))
+                        Text((card.expressionDate))
+                            .foregroundColor(.white)
+                            .font(.system(size: 13))
+                    }
+                    
+                    VStack(spacing:4){
+                        Text("CVV")
+                            .font(.system(size: 9))
+                            .foregroundColor(Color("Gray"))
+                        Text(card.expressionDate)
+                            .font(.system(size: 13))
+                            .foregroundColor(.white)
+                    }
+                   
+                       Spacer()
+                    VStack{
+                        Image(card.titleCard)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 70,height: 40)
+                            
+                        Text(card.title)
+                            .font(.system(size: 16))
+                            .bold()
+                            .foregroundColor(.white)
+                    }
+                  
+                   }
+                  
             }
-            Spacer()
-            Text("**** **** **** \(card.cardNumber)")
-                .foregroundColor(.white)
-                .fontWeight(.semibold)
-                .font(.largeTitle)
-            Spacer()
-            HStack {
-                   Text("Exp: \(card.expressionDate)")
-                       .foregroundColor(.white)
-                   Spacer()
-               }
-            
-              
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: 200)
+            .cornerRadius(20)
+            .shadow(radius: 5)
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: 200)
-        .background(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .topLeading, endPoint: .bottomTrailing))
-        .cornerRadius(20)
-        .shadow(radius: 5)
+       
     }
 }
 
+#Preview{
+    CardsView(card: Card(
+           title: "Master Card",
+           cardName: "Maincard",
+           titleCard: "masterCard",
+           cardNumber: "4321 1234",
+           expressionDate: "12/26"
+       ))
+}
 

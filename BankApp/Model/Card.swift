@@ -11,6 +11,7 @@ struct Card: Identifiable {
     var id = UUID()
     var title: String
     var cardName: String
+    var titleCard: String
     var cardNumber: String
     var expressionDate: String
 }

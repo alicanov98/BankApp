@@ -10,10 +10,10 @@ import SwiftUI
 
 class BankViewModel: ObservableObject {
     @Published var cards: [Card] = [
-        Card(title: "Bank Card", cardName: "SwiftUICodes", cardNumber: "1234", expressionDate: "01/29"),
-        Card(title: "Cashback Card", cardName: "SwiftUICodes", cardNumber: "5678", expressionDate: "02/30"),
-        Card(title: "Credit Card", cardName: "SwiftUICodes", cardNumber: "9101", expressionDate: "03/01"),
-        Card(title: "EDV Card", cardName: "SwiftUICodes", cardNumber: "1213", expressionDate: "03/02")
+        Card(title: "Bank Card", cardName: "Master Card",titleCard:"masterCard", cardNumber: "4595 1234", expressionDate: "01/29"),
+        Card(title: "Cashback Card", cardName: "VISA",titleCard:"visa", cardNumber: "8765 5678",expressionDate: "02/30"),
+        Card(title: "Credit Card", cardName: "Master Card",titleCard:"masterCard", cardNumber: "1019 9101", expressionDate: "03/01"),
+        Card(title: "EDV Card", cardName: "VISA",titleCard:"visa", cardNumber: "3121 1213", expressionDate: "03/02")
     ]
     
     @Published var transactions: [Transaction] = (0..<15).map { _ in

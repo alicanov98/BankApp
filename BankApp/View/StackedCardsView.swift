@@ -14,7 +14,7 @@ struct StackedCardsView: View {
     var body: some View {
         ZStack {
             ForEach(Array(viewModel.cards.enumerated()), id: \.element.id) { index, card in
-                CardView(card: card)
+                CardsView(card: card)
                     .offset(y: CGFloat(index) * 10)
                     .scaleEffect(index == viewModel.cards.count - 1 ? 1.0 : 0.95)
                     .offset(x: index == viewModel.cards.count - 1 ? topCardOffset.width : 0)
