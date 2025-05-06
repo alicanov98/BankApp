@@ -36,78 +36,10 @@ struct BankApp: View {
 
                 Spacer()
             }
+            .background(Color.white)
         }
         .background(Color.white)
-    }
-}
-
-
-
-
-
-
-struct CardsView: View {
-    var card: Card
-    
-    var body: some View {
-        ZStack{
-            Image("Card")
-                .resizable()
-                .scaledToFit()
-            VStack {
-                HStack(alignment:.top){
-                    Spacer()
-                    Text(card.cardName)
-                        .font(.title2)
-                        .bold()
-                        .foregroundColor(.white)
-                }
-                Spacer()
-                Text("4562 1122 \(card.cardNumber)")
-                    .foregroundColor(.white.opacity(0.8))
-                    .font(.system(size: 33,weight: .regular))
-                Spacer()
-                HStack(spacing: 20) {
-                    VStack(spacing:4){
-                        Text("Expiry Date")
-                            .font(.system(size: 9))
-                            .foregroundColor(Color("Gray"))
-                        Text((card.expressionDate))
-                            .foregroundColor(.white)
-                            .font(.system(size: 13))
-                    }
-                    
-                    VStack(spacing:4){
-                        Text("CVV")
-                            .font(.system(size: 9))
-                            .foregroundColor(Color("Gray"))
-                        Text(card.expressionDate)
-                            .font(.system(size: 13))
-                            .foregroundColor(.white)
-                    }
-                   
-                       Spacer()
-                    VStack{
-                        Image(card.titleCard)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50,height: 30)
-                            
-                        Text(card.title)
-                            .font(.system(size: 12))
-                            .bold()
-                            .foregroundColor(.white)
-                    }
-                  
-                   }
-                  
-            }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: 200)
-            .cornerRadius(20)
-            .shadow(radius: 5)
-        }
-       
+        
     }
 }
 

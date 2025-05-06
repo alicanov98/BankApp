@@ -12,29 +12,35 @@ struct MainTabView: View {
     @StateObject private var viewModel = BankViewModel()
 
     var body: some View {
-        TabView {
-            BankApp(path: $path)
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-
-            CardView()
-                .tabItem {
-                    Label("My Cards", systemImage: "creditcard")
-                }
-
-            StatisticaView()
-                .tabItem {
-                    Label("Statistics", systemImage: "list.bullet.clipboard")
-                }
-
-            SettingsView()
-                .tabItem {
-                    Label("Settings", systemImage: "gearshape")
-                }
+        NavigationStack{
+            TabView {
+                BankApp(path: $path)
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                    .background(Color.white)
+                
+                MyCardsView(viewModel: viewModel, path: $path)
+                    .tabItem {
+                        Label("My Cards", systemImage: "creditcard")
+                    }
+                    .background(Color.white)
+                
+                StatisticaView(viewModel:viewModel)
+                    .tabItem {
+                        Label("Statistics", systemImage: "list.bullet.clipboard")
+                    }
+                
+                SettingsView()
+                    .tabItem {
+                        Label("Settings", systemImage: "gearshape")
+                    }
+            }
+            .background(Color.white)
         }
     }
 }
+
 
 
 

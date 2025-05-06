@@ -24,6 +24,7 @@ struct ActionButtonsView: View {
                 
             }
         }
+        .background(Color.white)
         .padding()
     }
 }

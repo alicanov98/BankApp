@@ -28,10 +28,11 @@ struct TransactionRow: View {
                         .foregroundColor(.gray)
                 }
             }
-           
             Spacer()
-            Text(transaction.amount)
-                .font(.system(size: 18,weight: .medium))
+            Text(transaction.receive == true ?
+                "$\(String(format: "%.2f", transaction.amount))" :
+                "-$\(String(format: "%.2f", transaction.amount))")
+                .font(.system(size: 18, weight: .medium))
                 .foregroundColor(transaction.receive == true ? .blue : .red)
         }
         .background(Color.white)
@@ -40,6 +41,6 @@ struct TransactionRow: View {
 }
 
 #Preview {
-    TransactionRow(transaction: Transaction(iconName: "star.fill", title: "Money Transfer", category: "Transaction", amount: "$100",receive:true,sent:false))
+    TransactionRow(transaction: Transaction(iconName: "star.fill", title: "Money Transfer", category: "Transaction", amount: 100,receive:true,sent:false))
 }
 

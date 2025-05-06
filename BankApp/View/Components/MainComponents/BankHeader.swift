@@ -33,6 +33,7 @@ struct BankHeader: View {
             }
         }
         .padding(.horizontal)
+        .background(Color.white)
     
     }
 }

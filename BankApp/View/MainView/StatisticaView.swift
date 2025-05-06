@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct StatisticaView: View {
+    @ObservedObject var viewModel: BankViewModel
     var body: some View {
-        Text("Statistica View")
-            .font(.largeTitle)
-            .padding()
+        VStack {
+            Header(title: "Statistics", leftIcon: true, rightIcon: true, rightIconStr: "bell")
+
+            ChartView()
+                .frame(height: 300)
+                .padding(.top, 45)
+            RecentTransactionsView(viewModel: viewModel, isCardDetailPage: false)
+                .padding(.top, 45)
+        }
+        .padding(.horizontal, 16)
+      
     }
 }
 
 #Preview {
-    StatisticaView()
+    StatisticaView(viewModel: BankViewModel())
 }
+

@@ -11,7 +11,7 @@ import SwiftUI
 struct BankAppNavigation: App {
     @State private var path: [Route] = []
     @State private var isOnboardingCompleted = UserDefaults.standard.bool(forKey: "isOnboardingCompleted")
-
+    @StateObject private var viewModel = BankViewModel()
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $path) {
@@ -37,7 +37,6 @@ struct BankAppNavigation: App {
                         MainTabView(path: $path)
                             .navigationBarBackButtonHidden(true)
                             .navigationBarHidden(true)
-                        
                     }
                 }
             }

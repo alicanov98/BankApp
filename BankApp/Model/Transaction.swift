@@ -13,7 +13,7 @@ struct Transaction: Identifiable {
     var iconName: String
     var title: String
     var category: String
-    var amount: String
+    var amount: Double 
     var receive: Bool
     var sent: Bool
 }
