@@ -8,13 +8,13 @@
 import SwiftUI
 
 let profileSection: [SettingItem] = [
-    .init(title: "Personal Information", iconName: "path", destinationView: AnyView(ChangePassword()),icon: "profileIcon"),
-    .init(title: "Payment Preferences", iconName: "path", destinationView: AnyView(PrivacyPolicy()),icon: "creditCards"),
-    .init(title: "Banks and Cards", iconName: "path", destinationView: AnyView(PrivacyPolicy()),icon: "creditcardEdit"),
-    .init(title: "Notifications", iconName: "path", destinationView: AnyView(PrivacyPolicy()),icon: "notificationIcon"),
-    .init(title: "Message Center", iconName: "path", destinationView: AnyView(PrivacyPolicy()),icon: "messageCenter"),
-    .init(title: "Address", iconName: "path", destinationView: AnyView(PrivacyPolicy()),icon: "location"),
-    .init(title: "Settings", iconName: "path", destinationView: AnyView(PrivacyPolicy()),icon: "settingIcon"),
+    .init(title: "Personal Information", iconName: "path", destinationView: AnyView(PersonalInformationView()),icon: "profileIcon",notification:0),
+    .init(title: "Payment Preferences", iconName: "path", destinationView: AnyView(PaymentPreferencesView()),icon: "creditCards",notification:0),
+    .init(title: "Banks and Cards", iconName: "path", destinationView: AnyView(BanksAndCardsView()),icon: "creditcardEdit",notification:0),
+    .init(title: "Notifications", iconName: "path", destinationView: AnyView(NotificationsView()),icon: "notificationIcon",notification:3),
+    .init(title: "Message Center", iconName: "path", destinationView: AnyView(MessageCenterView()),icon: "messageCenter",notification:0),
+    .init(title: "Address", iconName: "path", destinationView: AnyView(AddressView()),icon: "location",notification:0),
+    .init(title: "Settings", iconName: "path", destinationView: AnyView(SettingView()),icon: "settingIcon",notification:0),
     
 ]
 
@@ -24,12 +24,13 @@ struct MyProfile: View {
         VStack(spacing:20){
             Header(
                 title: "Profile",
-                leftIcon:true,
+                leftIcon: true,
                 rightIcon: true,
-                onLeftTap:  {
+                onLeftTap: {
                     pm.wrappedValue.dismiss()
                 },
-                rightIconName: "userEdit"
+                rightIconName: "userEdit",
+                navigationDestination: AnyView(EditProfileView())
             )
             HStack{
                 Image("profile")

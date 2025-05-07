@@ -15,6 +15,8 @@ struct Header: View {
      var onRightTap: (() -> Void)?
     var rightIconStr:String?
     var rightIconName:String?
+    var navigationDestination: AnyView?
+    @State private var navigate = false
     var body: some View {
         HStack {
             if leftIcon==true{
@@ -49,7 +51,11 @@ struct Header: View {
             Spacer()
             if rightIcon == true {
                 Button {
-                    onRightTap?()
+                    if navigationDestination != nil {
+                               navigate = true
+                           } else {
+                               onRightTap?()
+                           }
                 } label: {
                     if let rightIconName = rightIconName {
                         Image(rightIconName)
@@ -65,6 +71,22 @@ struct Header: View {
                             .clipShape(Circle())
                     }
                 }
+                
+                if let destination = navigationDestination {
+                    NavigationLink(
+                        destination: destination,
+                        isActive: $navigate,
+                        label: {
+                            EmptyView()
+                        }
+                    )
+                }
+            }else{
+                Image(systemName:"magnifyingglass")
+                    .frame(width: 40, height: 40)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(Circle())
+                    .opacity(0)
             }
             
         }

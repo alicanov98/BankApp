@@ -13,4 +13,5 @@ struct SettingItem: Identifiable {
     let iconName: String
     let destinationView: AnyView?
     let icon: String?
+    let notification: Int?
 }

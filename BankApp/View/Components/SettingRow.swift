@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SettingRow: View {
     let item: SettingItem
-
     var body: some View {
         Group {
             if let destination = item.destinationView {
@@ -31,7 +30,17 @@ struct SettingRow: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.black)
             Spacer()
-            Image(item.iconName)
+           
+            if let notification = item.notification, notification > 0 {
+                Text("\(notification)")
+                    .font(.caption)
+                    .foregroundColor(.white)
+                    .padding(6)
+                    .background(Color.red)
+                    .clipShape(Circle())
+            }else{
+                Image(item.iconName)
+            }
         }
         .padding(.vertical, 12)
         .overlay(
@@ -46,5 +55,5 @@ struct SettingRow: View {
 
 
 #Preview {
-    SettingRow(item: SettingItem(title: "General", iconName: "path", destinationView: AnyView(MyProfile()),icon: "settingIcon"))
+    SettingRow(item: SettingItem(title: "General", iconName: "path", destinationView: AnyView(MyProfile()),icon: "settingIcon",notification:2))
 }

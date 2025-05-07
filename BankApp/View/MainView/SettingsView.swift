@@ -8,13 +8,13 @@
 import SwiftUI
 
 let generalSettings: [SettingItem] = [
-    .init(title: "My Profile", iconName: "path", destinationView: AnyView(MyProfile()),icon: ""),
-    .init(title: "Contact Us", iconName: "path", destinationView: AnyView(ContactUs()),icon: "")
+    .init(title: "My Profile", iconName: "path", destinationView: AnyView(MyProfile()),icon: "",notification:0),
+    .init(title: "Contact Us", iconName: "path", destinationView: AnyView(ContactUs()),icon: "",notification:0)
 ]
 
 let securitySettings: [SettingItem] = [
-    .init(title: "Change Password", iconName: "path", destinationView: AnyView(ChangePassword()),icon: ""),
-    .init(title: "Privacy Policy", iconName: "path", destinationView: AnyView(PrivacyPolicy()),icon: "")
+    .init(title: "Change Password", iconName: "path", destinationView: AnyView(ChangePassword()),icon: "",notification:0),
+    .init(title: "Privacy Policy", iconName: "path", destinationView: AnyView(PrivacyPolicy()),icon: "",notification:0)
 ]
 
 
@@ -24,7 +24,7 @@ struct SettingsView: View {
 
       let languages = ["English", "Azerbaijani", "Turkish", "Russian"]
     var body: some View {
-        VStack(alignment: .leading, spacing: 0){
+        VStack(alignment: .leading, spacing: 12){
             Header(title: "Settings",rightIcon: true, rightIconName:"logout")
             Text("General")
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -47,7 +47,7 @@ struct SettingsView: View {
                              Image("path")
                          }
                      }
-                     .padding(.bottom,12)
+                     .padding(.vertical,12)
                  }
                  .sheet(isPresented: $isLanguageSheetPresented) {
                      LanguageSelectionView(
